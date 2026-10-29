@@ -1,0 +1,8 @@
+category,category_subtitle,type,question,answer,options,correct,media,start,end,fact,notes
+General Knowledge,A gentle warm-up,text,What is the capital of Canada?,Ottawa,,,,,,It was chosen by Queen Victoria in 1857.,
+General Knowledge,,choice,Which planet is known as the Red Planet?,Mars,Venus|Mars|Jupiter|Saturn,B,,,,,
+General Knowledge,,image,Which country flies this flag?,Bangladesh,,,flag.png,,,,Accept 'People's Republic of Bangladesh'
+Music,Ears on,audio,Name this tune.,Twinkle Twinkle Little Star,,,tune.mp3,0,6,,
+Music,,audio,Which instrument is playing?,,Piano|Violin|Flute|Trumpet,A,tune.mp3,,,,
+Film & TV,Popcorn ready?,video,What happens next in this clip?,The bubble pops,,,clip.mp4,5,20,,Pause on the last frame
+Film & TV,,choice,How many films are in the original Star Wars trilogy?,Three,Two|Three|Four,,,,,,

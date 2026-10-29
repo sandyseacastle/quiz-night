@@ -1,0 +1,298 @@
+{
+  "id": "demo",
+  "title": "The Groovy Quiz (demo)",
+  "createdAt": "2026-10-05T12:00:00.000Z",
+  "settings": {
+    "answers": "end",
+    "answerStyle": "single",
+    "showCategoryOnQuestions": true,
+    "defaultTheme": "arches"
+  },
+  "slides": [
+    {
+      "id": "s01",
+      "kind": "title",
+      "kicker": "Welcome to",
+      "title": "The Groovy Quiz",
+      "subtitle": "Six rounds, one champion. Phones away, pens out!",
+      "theme": "checker"
+    },
+    {
+      "id": "s02",
+      "kind": "category",
+      "title": "General Knowledge",
+      "subtitle": "A gentle warm-up to get the brain cells dancing",
+      "theme": "auto"
+    },
+    {
+      "id": "s03",
+      "kind": "question",
+      "media": "none",
+      "answerType": "open",
+      "text": "What is the only planet in our solar system that rotates on its side?",
+      "answer": "Uranus",
+      "fact": "Its axis is tilted about 98°, probably from an ancient collision.",
+      "notes": "Accept 'Uranus' only.",
+      "options": [],
+      "correct": 0
+    },
+    {
+      "id": "s04",
+      "kind": "question",
+      "media": "none",
+      "answerType": "choice",
+      "text": "Which of these is the largest ocean?",
+      "options": [
+        "Atlantic",
+        "Indian",
+        "Pacific",
+        "Arctic"
+      ],
+      "correct": 2,
+      "answer": ""
+    },
+    {
+      "id": "s05",
+      "kind": "question",
+      "media": "image",
+      "answerType": "open",
+      "text": "Which country flies this flag?",
+      "answer": "Bangladesh",
+      "fact": "The red disc is set slightly towards the hoist so it looks centred when flying.",
+      "file": {
+        "src": "flag.png",
+        "name": "flag.png",
+        "mime": "image/png",
+        "w": 1000,
+        "h": 600
+      },
+      "options": [],
+      "correct": 0
+    },
+    {
+      "id": "s06",
+      "kind": "category",
+      "title": "Name That Tune",
+      "subtitle": "",
+      "theme": "auto"
+    },
+    {
+      "id": "s07",
+      "kind": "question",
+      "media": "audio",
+      "answerType": "open",
+      "text": "Name this nursery rhyme.",
+      "answer": "Twinkle, Twinkle, Little Star",
+      "fact": "Mozart wrote twelve variations on this melody.",
+      "file": {
+        "src": "tune.mp3",
+        "name": "tune.mp3",
+        "mime": "audio/mpeg",
+        "duration": 6.1
+      },
+      "start": 0,
+      "end": 0,
+      "options": [],
+      "correct": 0
+    },
+    {
+      "id": "s08",
+      "kind": "question",
+      "media": "audio",
+      "answerType": "choice",
+      "text": "This melody is shared with which other song?",
+      "options": [
+        "Baa, Baa, Black Sheep",
+        "Happy Birthday",
+        "Frère Jacques",
+        "Hot Cross Buns"
+      ],
+      "correct": 0,
+      "file": {
+        "src": "tune.mp3",
+        "name": "tune.mp3",
+        "mime": "audio/mpeg",
+        "duration": 6.1
+      },
+      "start": 0,
+      "end": 3
+    },
+    {
+      "id": "s09",
+      "kind": "break",
+      "kicker": "Intermission",
+      "title": "Top Up Time",
+      "subtitle": "Back in ten minutes. Hand your answer sheets to the host!",
+      "theme": ""
+    },
+    {
+      "id": "s10",
+      "kind": "category",
+      "title": "Science & Nature",
+      "subtitle": "From fractals to far-off planets",
+      "theme": "auto"
+    },
+    {
+      "id": "s11",
+      "kind": "question",
+      "media": "video",
+      "answerType": "open",
+      "text": "What is the name of the famous fractal zoomed into in that clip?",
+      "answer": "The Mandelbrot set",
+      "file": {
+        "src": "fractal.mp4",
+        "name": "fractal.mp4",
+        "mime": "video/mp4",
+        "w": 960,
+        "h": 540,
+        "duration": 8
+      },
+      "start": 0,
+      "end": 0,
+      "autoAdvance": true,
+      "options": [],
+      "correct": 0
+    },
+    {
+      "id": "s12",
+      "kind": "question",
+      "media": "video",
+      "answerType": "choice",
+      "text": "Which mathematician is that fractal named after?",
+      "options": [
+        "Benoit Mandelbrot",
+        "Gaston Julia",
+        "Pierre Fatou",
+        "Georg Cantor"
+      ],
+      "correct": 0,
+      "file": {
+        "src": "fractal.mp4",
+        "name": "fractal.mp4",
+        "mime": "video/mp4",
+        "w": 960,
+        "h": 540,
+        "duration": 8
+      },
+      "start": 2,
+      "end": 6,
+      "autoAdvance": true
+    },
+    {
+      "id": "s13",
+      "kind": "question",
+      "media": "image",
+      "answerType": "open",
+      "text": "This sunset poster style is most associated with which decade?",
+      "answer": "The 1970s",
+      "file": {
+        "src": "sunset.png",
+        "name": "sunset.png",
+        "mime": "image/png",
+        "w": 800,
+        "h": 1100
+      },
+      "options": [],
+      "correct": 0
+    },
+    {
+      "id": "s14",
+      "kind": "category",
+      "title": "Odds & Ends",
+      "subtitle": "",
+      "theme": "auto"
+    },
+    {
+      "id": "s15",
+      "kind": "question",
+      "media": "none",
+      "answerType": "choice",
+      "text": "How many hearts does an octopus have?",
+      "options": [
+        "One",
+        "Two",
+        "Three"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "s16",
+      "kind": "question",
+      "media": "none",
+      "answerType": "choice",
+      "text": "Which of these is NOT one of the primary colours of light?",
+      "options": [
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "All of them are",
+        "None of them are"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "s17",
+      "kind": "question",
+      "media": "none",
+      "answerType": "open",
+      "text": "In the 1970s, a famous Swedish band won the Eurovision Song Contest with a song named after a battle in 1815. What was the name of the song, and where was the battle fought?",
+      "answer": "Waterloo (in present-day Belgium)",
+      "options": [],
+      "correct": 0
+    },
+    {
+      "id": "s18",
+      "kind": "category",
+      "title": "Geography",
+      "subtitle": "Maps at the ready",
+      "theme": "auto"
+    },
+    {
+      "id": "s19",
+      "kind": "question",
+      "media": "none",
+      "answerType": "choice",
+      "text": "Is Canberra the capital of Australia?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "s20",
+      "kind": "category",
+      "title": "Food & Drink",
+      "subtitle": "Last round, make it count",
+      "theme": "auto"
+    },
+    {
+      "id": "s21",
+      "kind": "question",
+      "media": "none",
+      "answerType": "open",
+      "text": "Which nut is used to make marzipan?",
+      "answer": "Almond",
+      "options": [],
+      "correct": 0
+    },
+    {
+      "id": "s22",
+      "kind": "answers",
+      "kicker": "Swap sheets",
+      "title": "The Answers",
+      "subtitle": "Mark your neighbour's sheet. Honestly!",
+      "theme": ""
+    },
+    {
+      "id": "s23",
+      "kind": "end",
+      "kicker": "And the winner is…",
+      "title": "Final Scores",
+      "subtitle": "Thanks for playing. Drive home safe!",
+      "theme": ""
+    }
+  ],
+  "updatedAt": "2026-10-08T11:03:46.665Z"
+}

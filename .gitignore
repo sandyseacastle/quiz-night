@@ -1,0 +1,5 @@
+node_modules/
+quizzes/*/
+!quizzes/demo/
+dist/
+my-quiz/

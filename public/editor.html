@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz editor · Quiz Night Slides</title>
+<link rel="stylesheet" href="/css/slide.css"><link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="btn ghost small" href="/" title="All quizzes" id="back"></a>
+  <a class="logo" href="/"><span class="dot"></span></a>
+  <input class="title-input" id="title" aria-label="Quiz title" spellcheck="false">
+  <span class="save-state" id="save-state"></span>
+  <span class="spacer"></span>
+  <button class="btn" id="btn-csv"></button>
+  <button class="btn" id="btn-settings"></button>
+  <button class="btn" id="btn-export"></button>
+  <button class="btn" id="btn-host"></button>
+  <button class="btn primary" id="btn-present"></button>
+</header>
+
+<div class="editor">
+  <aside class="sidebar">
+    <div class="slide-list" id="list" tabindex="0" aria-label="Slides"></div>
+    <div class="sidebar-foot">
+      <div class="add-menu hidden" id="add-menu"></div>
+      <button class="btn dark" id="btn-add"></button>
+    </div>
+  </aside>
+  <main class="center">
+    <div class="center-head"><div class="steps" id="steps"></div><span class="spacer"></span><span class="hint" id="step-hint"></span></div>
+    <div class="preview-wrap"><div class="preview" id="preview"></div></div>
+    <div class="center-foot">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> move between slides</span>
+      <span><kbd>Ctrl</kbd>+<kbd>D</kbd> duplicate</span>
+      <span><kbd>Del</kbd> delete</span>
+      <span>Drag a media file onto the preview to attach it</span>
+    </div>
+  </main>
+  <aside class="inspector" id="inspector"></aside>
+</div>
+
+<!-- Settings -->
+<dialog id="dlg-settings">
+  <div class="dlg-head"><h3>Quiz settings</h3></div>
+  <div class="dlg-body">
+    <label class="field"><span>Answer slides</span>
+      <select class="input" data-s="answers">
+        <option value="end">Show answers at the Answers slide (or at the end of the quiz)</option>
+        <option value="none">Don't include answer slides</option>
+      </select>
+    </label>
+    <label class="field"><span>Answer layout</span>
+      <select class="input" data-s="answerStyle">
+        <option value="single">One answer per slide (great for big reveals)</option>
+        <option value="list">A list of answers per round (quicker marking)</option>
+      </select>
+    </label>
+    <label class="field"><span>Theme for title, break, answers &amp; final slides</span>
+      <select class="input" data-s="defaultTheme" id="set-theme"></select>
+    </label>
+    <label class="check"><input type="checkbox" data-s="showCategoryOnQuestions"> <span>Show the category name at the top of question slides</span></label>
+    <div class="section">
+      <span class="field-label">Media folder</span>
+      <p class="hint" style="margin-bottom:8px">Removes uploaded files that no slide uses any more.</p>
+      <button class="btn small" id="btn-cleanup">Clean up unused media</button>
+    </div>
+  </div>
+  <div class="dlg-foot"><button class="btn primary" value="close" onclick="this.closest('dialog').close()">Done</button></div>
+</dialog>
+
+<!-- CSV import -->
+<dialog id="dlg-csv">
+  <div class="dlg-head"><h3>Import from CSV</h3></div>
+  <div class="dlg-body">
+    <p class="hint" style="margin:0 0 12px">One row per question. A new value in the <code>category</code> column starts a new round.
+      To include pictures, audio or video, put the file name in the <code>media</code> column and select those files together with the CSV.
+      Or choose a single <b>.zip</b> holding the CSV and folders of media, and write paths like <code>round-1/images/flag.png</code> in the <code>media</code> column.
+      <a href="/template.csv" download>Download a template</a>.</p>
+    <div class="dropzone" id="csv-drop" tabindex="0" role="button">
+      <strong>Choose a CSV and media files, or a .zip</strong>or drop them here
+      <input type="file" id="csv-file" multiple accept=".csv,text/csv,.zip,application/zip,image/*,audio/*,video/*" hidden>
+    </div>
+    <div id="csv-summary" style="margin-top:14px"></div>
+    <details style="margin-top:14px">
+      <summary class="hint" style="cursor:pointer">Column reference</summary>
+      <table style="margin-top:8px">
+        <tr><th>Column</th><th>What it does</th></tr>
+        <tr><td><code>category</code></td><td>Round name. A change of value adds a category slide.</td></tr>
+        <tr><td><code>type</code></td><td><code>text</code>, <code>choice</code>, <code>image</code>, <code>audio</code> or <code>video</code>. Optional: worked out from the media and options if blank.</td></tr>
+        <tr><td><code>question</code></td><td>The question text.</td></tr>
+        <tr><td><code>answer</code></td><td>The answer. For multiple choice it can be the correct option's text or letter.</td></tr>
+        <tr><td><code>options</code></td><td>Choices separated by <code>|</code>, or use columns <code>option_a</code> … <code>option_f</code>.</td></tr>
+        <tr><td><code>correct</code></td><td>Letter of the correct option (optional if <code>answer</code> matches one).</td></tr>
+        <tr><td><code>media</code></td><td>File name of an image, audio or video file. With a .zip, a path relative to the CSV's folder (e.g. <code>music/tune.mp3</code>).</td></tr>
+        <tr><td><code>start</code>, <code>end</code></td><td>Clip start/end in seconds for audio and video.</td></tr>
+        <tr><td><code>fact</code></td><td>Extra info shown on the answer slide.</td></tr>
+        <tr><td><code>notes</code></td><td>Private host notes.</td></tr>
+        <tr><td><code>category_subtitle</code></td><td>Subtitle for the category slide.</td></tr>
+      </table>
+    </details>
+  </div>
+  <div class="dlg-foot">
+    <select class="input" id="csv-mode" style="width:auto;margin-right:auto">
+      <option value="append">Add after the last question</option>
+      <option value="questions">Replace questions &amp; categories</option>
+      <option value="after">Insert after the selected slide</option>
+      <option value="replace">Replace every slide</option>
+    </select>
+    <button class="btn" onclick="this.closest('dialog').close()">Cancel</button>
+    <button class="btn primary" id="csv-go" disabled>Import</button>
+  </div>
+</dialog>
+
+<script src="/vendor/papaparse.min.js"></script>
+<script src="/vendor/fflate.js"></script>
+<script type="module" src="/js/editor.js"></script>
+</body>
+</html>

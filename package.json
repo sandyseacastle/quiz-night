@@ -1,0 +1,64 @@
+{
+  "name": "quiz-night-slides",
+  "version": "1.0.0",
+  "description": "Local editor for retro quiz-night slide decks with text, multiple choice, image, audio and video questions. Present in the browser or export to PowerPoint.",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node server.js --open",
+    "serve": "node server.js",
+    "app": "electron .",
+    "dist": "electron-builder --linux AppImage deb",
+    "dev": "node scripts/dev.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1",
+    "fflate": "^0.8.3",
+    "multer": "^2.4.0",
+    "papaparse": "^5.7.0",
+    "pptxgenjs": "^4.0.1"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "author": {
+    "name": "Quiz Night",
+    "email": "tealiff@proton.me"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.quiznight.slides",
+    "productName": "Quiz Night Slides",
+    "asar": false,
+    "files": [
+      "server.js",
+      "lib/**",
+      "public/**",
+      "fonts/**",
+      "quizzes/demo/**",
+      "electron/**",
+      "build/icon.png",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "build/icon.png",
+      "category": "Office",
+      "executableName": "quiz-night-slides",
+      "synopsis": "Retro quiz-night slide decks",
+      "syncDesktopName": true
+    }
+  },
+  "homepage": "https://example.com/quiz-night-slides",
+  "desktopName": "quiz-night-slides.desktop"
+}
